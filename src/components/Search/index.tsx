@@ -1,39 +1,30 @@
-import { useState, memo } from "react";
+import { memo } from "react";
 
 import Button from "@components/Button";
-import useDebounce from "@hooks/useDebounce";
 
 import type { ChangeEvent } from "react";
 import { styInputWrapper } from "./styles";
 
 interface SearchProps {
-  initialValue: string;
+  value: string;
   onChange: (value: string) => void;
 }
 
-function Search({ initialValue, onChange }: SearchProps) {
-  const [searchKeyword, setSearchKeyword] = useState(initialValue);
-
+function Search({ value, onChange }: SearchProps) {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   const handleChangeSearchKeyword = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchKeyword(e.target.value);
+    onChange(e.target.value);
   };
-
-  useDebounce(searchKeyword, 500, () => {
-    onChange(searchKeyword);
-  });
-
-  console.log("search rendered!");
 
   return (
     <form onSubmit={handleSubmit}>
       <div className={styInputWrapper}>
         <input
           placeholder="Search..."
-          value={searchKeyword}
+          value={value}
           onChange={handleChangeSearchKeyword}
           type="text"
         />

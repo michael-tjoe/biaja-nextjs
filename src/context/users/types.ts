@@ -1,3 +1,5 @@
+import { Dispatch } from "react";
+
 export interface UserInfo {
   gender: string;
   name: {
@@ -19,4 +21,27 @@ export interface UserInfo {
     date: string;
     age: number;
   };
+}
+
+export interface PageStatusData {
+  currentPage: number;
+  keyword: string;
+  sortBy: string;
+  sortOrder: string;
+
+  filter: {
+    id: string;
+    label: string;
+  };
+}
+
+export type UserActionType = "set_filter" | "set_keyword" | "reset";
+
+export interface UsersContextData {
+  userData: Array<UserInfo>;
+  pageStatus: PageStatusData;
+  dispatchPageStatus: Dispatch<{
+    type: UserActionType;
+    payload?: string | Record<string, unknown>;
+  }>;
 }

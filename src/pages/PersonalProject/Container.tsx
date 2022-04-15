@@ -45,10 +45,7 @@ function PersonalProject() {
       <h1>Personal Project</h1>
 
       <div className="control-bar">
-        <Search
-          initialValue={pageStatus.keyword}
-          onChange={handleChangeKeyword}
-        />
+        <Search value={pageStatus.keyword} onChange={handleChangeKeyword} />
         <Select
           onChange={handleChangeFilter}
           value={pageStatus.filter.id}
