@@ -32,8 +32,8 @@ export const styButton = css`
     color: ${white};
     border-color: ${primary};
     background-color: ${primary};
-    textshadow: 0 -1px 0 rgb(0 0 0 / 12%);
-    boxshadow: 0 2px #0000000b;
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+    box-shadow: 0 2px #0000000b;
 
     &:hover {
       background-color: ${primaryHover};
