@@ -1,11 +1,12 @@
 import Head from "next/head";
+import PersonalProject from "@pages/PersonalProject";
 
 const Home = () => (
   <>
     <Head>
-      <title>Emotion using the vanilla version supporting SSR</title>
+      <title>Ajaib - Personal Project</title>
     </Head>
-    <div>Hello</div>
+    <PersonalProject />
   </>
 );
 

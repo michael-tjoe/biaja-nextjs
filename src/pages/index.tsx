@@ -48,7 +48,6 @@ export default function Home() {
 
   useDebounce(searchKeyword, 500, () => {
     if (pageStatus.keyword !== searchKeyword) {
-      console.log("calling setPage");
       setPageStatus({
         ...pageStatus,
         keyword: searchKeyword,
