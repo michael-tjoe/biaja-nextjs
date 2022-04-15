@@ -6,7 +6,7 @@ interface LayoutProps {
 }
 
 function Layout({ children }: LayoutProps) {
-  return <div className={styLayoutWrapper}>{children}</div>;
+  return <main className={styLayoutWrapper}>{children}</main>;
 }
 
 export default Layout;

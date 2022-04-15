@@ -11,3 +11,4 @@ export const smoke = "#d9d9d9";
 
 export const blackPrimary = "#000000d9";
 export const white = "#ffffff";
+export const grayScale = "#00000073";

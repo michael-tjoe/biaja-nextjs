@@ -8,10 +8,12 @@ import {
 
 export const styInputWrapper = css`
   display: flex;
-  fontsize: 14px;
+  font-size: 14px;
   width: 100%;
+  overflow: hidden;
 
   > input {
+    width: 100%;
     color: ${blackPrimary};
     line-height: 1.5715;
     border-radius: 2px;
