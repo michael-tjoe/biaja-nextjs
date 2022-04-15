@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, memo } from "react";
 import noop from "@utils/noop";
 import { styButton } from "./styles";
 
@@ -28,4 +28,4 @@ function Button({
   );
 }
 
-export default Button;
+export default memo(Button);

@@ -21,6 +21,6 @@ export interface UserInfo {
   };
 }
 
-export interface PersonalProjectProps {
+export interface PersonalProjectWrapperProps {
   initialData: Array<UserInfo>;
 }

@@ -4,4 +4,4 @@ export const FILTER_OPTIONS = [
   { id: "female", label: "Female" },
 ];
 
-export const DEFAULT_FILTER_VALUE = FILTER_OPTIONS[0].id;
+export const DEFAULT_FILTER_VALUE = FILTER_OPTIONS[0];

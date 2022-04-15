@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 
 import Button from "@components/Button";
 import useDebounce from "@hooks/useDebounce";
@@ -11,7 +11,7 @@ interface SearchProps {
   onChange: (value: string) => void;
 }
 
-export default function Search({ initialValue, onChange }: SearchProps) {
+function Search({ initialValue, onChange }: SearchProps) {
   const [searchKeyword, setSearchKeyword] = useState(initialValue);
 
   const handleSubmit = (e) => {
@@ -25,6 +25,8 @@ export default function Search({ initialValue, onChange }: SearchProps) {
   useDebounce(searchKeyword, 500, () => {
     onChange(searchKeyword);
   });
+
+  console.log("search rendered!");
 
   return (
     <form onSubmit={handleSubmit}>
@@ -57,3 +59,5 @@ export default function Search({ initialValue, onChange }: SearchProps) {
     </form>
   );
 }
+
+export default memo(Search);

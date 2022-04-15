@@ -1,9 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState, memo } from "react";
 import useClickOutside from "@hooks/useClickOutside";
-import { useState } from "react";
 import { stySelectWrapper, styDropdown } from "./styles";
 
-function Select() {
+function Select({ options, value, onChange }) {
   const selectEl = useRef(null);
   const [displayDropdown, setDisplayDropdown] = useState(false);
 
@@ -17,6 +16,8 @@ function Select() {
     }
   });
 
+  const selectedOption = options.find((option) => option.id === value);
+  console.log("select rendered");
   return (
     <div ref={selectEl} className={stySelectWrapper}>
       <div
@@ -24,8 +25,9 @@ function Select() {
         onClick={handleToggleDropdown}
         className="selector"
       >
-        <div className="selected-item">Lucy</div>
+        <div className="selected-item">{selectedOption.label}</div>
       </div>
+
       <div className="select-arrow">
         <div className="icon">
           <svg
@@ -43,23 +45,27 @@ function Select() {
       </div>
 
       <div
-        {...(displayDropdown && { "data-expand": true })}
         className={styDropdown}
+        {...(displayDropdown && { "data-expand": true })}
       >
         <ul>
-          <li>
-            <button type="button">Jack</button>
-          </li>
-          <li data-selected="true">
-            <button type="button">Lucy</button>
-          </li>
-          <li>
-            <button type="button">hello</button>
-          </li>
+          {options.map((option) => (
+            <li key={option.id}>
+              <button
+                type="button"
+                onClick={() => {
+                  onChange(option);
+                  setDisplayDropdown(false);
+                }}
+              >
+                {option.label}
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
   );
 }
 
-export default Select;
+export default memo(Select);
