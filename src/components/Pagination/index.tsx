@@ -32,6 +32,7 @@ function Pagination({
 
         return (
           <li
+            data-testid={`pager-${page}`}
             onClick={() => handleClickPage(page)}
             {...(isActive && { "data-active": true })}
             key={index}

@@ -24,7 +24,11 @@ function TableHeader({
   const isOrderByAscending = sortOrder === EnumSortOrder.ASCENDING;
 
   return (
-    <th onClick={handleClickItem} className={styTableHeader}>
+    <th
+      data-testid={`tableHeader-${id}`}
+      onClick={handleClickItem}
+      className={styTableHeader}
+    >
       <div className="sorter-wrapper">
         <p>{title}</p>
 

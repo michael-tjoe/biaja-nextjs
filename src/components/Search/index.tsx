@@ -24,6 +24,7 @@ function Search({ value, onChange }: SearchProps) {
       <div className={styInputWrapper}>
         <input
           placeholder="Search..."
+          data-testid="txtSearchKeyword"
           value={value}
           onChange={handleChangeSearchKeyword}
           type="text"
