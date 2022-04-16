@@ -1,8 +1,9 @@
 import { memo } from "react";
-import dayjs from "dayjs";
+
 import TableHeader from "@components/Tables/Header";
-import { COLUMN_CONFIG } from "@constants/tableConfig";
 import { UserInfo } from "@context/users/types";
+import { COLUMN_CONFIG } from "@constants/tableConfig";
+
 import { styTableWrapper } from "./styles";
 
 interface UsersTableProps {
@@ -41,15 +42,21 @@ function UsersTable({
       <tbody>
         {usersData.map((user) => {
           const loginData = user.login || { uuid: "", username: "" };
-          const nameData = user.name;
+          const uuid = loginData.uuid;
 
           return (
-            <tr key={loginData.uuid}>
-              <td>{loginData.username}</td>
-              <td>{`${nameData.first} ${nameData.last}`}</td>
-              <td>{user.email}</td>
-              <td>{user.gender}</td>
-              <td>{dayjs(user.registered.date).format("DD-MM-YYYY HH:mm")}</td>
+            <tr key={uuid}>
+              {COLUMN_CONFIG.map((column) => {
+                const isActiveSort = column.key === sortBy;
+                return (
+                  <td
+                    key={`${column.key}-${uuid}`}
+                    className={isActiveSort ? "active" : ""}
+                  >
+                    {column.dataIndex(user)}
+                  </td>
+                );
+              })}
             </tr>
           );
         })}

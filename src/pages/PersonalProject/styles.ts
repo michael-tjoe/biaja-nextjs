@@ -49,6 +49,10 @@ export const styTableWrapper = css`
         position: relative;
         padding: 16px;
         overflow-wrap: break-word;
+
+        &.active {
+          background-color: #fafafa;
+        }
       }
     }
   }
