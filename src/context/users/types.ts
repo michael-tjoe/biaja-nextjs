@@ -35,11 +35,16 @@ export interface PageStatusData {
   };
 }
 
-export type UserActionType = "set_filter" | "set_keyword" | "reset";
+export type UserActionType =
+  | "SET_FILTER"
+  | "SET_KEYWORD"
+  | "RESET"
+  | "SET_SORT_BY";
 
 export interface UsersContextData {
-  userData: Array<UserInfo>;
+  usersData: Array<UserInfo>;
   pageStatus: PageStatusData;
+  isLoading: boolean;
   dispatchPageStatus: Dispatch<{
     type: UserActionType;
     payload?: string | Record<string, unknown>;

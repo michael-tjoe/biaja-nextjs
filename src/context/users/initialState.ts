@@ -10,9 +10,10 @@ export const DEFAULT_PAGE_STATUS = {
 };
 
 export const INITIAL_USERS_CONTEXT_VALUE = {
-  userData: [],
+  usersData: [],
   pageStatus: DEFAULT_PAGE_STATUS,
   dispatchPageStatus: noop,
+  isLoading: false
 };
 
 export default INITIAL_USERS_CONTEXT_VALUE;

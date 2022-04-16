@@ -1,9 +1,12 @@
 import { UserActionType } from "./types";
 
-const actions: { [key: string]: UserActionType } = {
-  SET_FILTER: "set_filter",
-  SET_KEYWORD: "set_keyword",
-  RESET: "reset",
+const actions: {
+  [Key in UserActionType]: UserActionType;
+} = {
+  SET_FILTER: "SET_FILTER",
+  SET_KEYWORD: "SET_KEYWORD",
+  SET_SORT_BY: "SET_SORT_BY",
+  RESET: "RESET",
 };
 
 export default actions;

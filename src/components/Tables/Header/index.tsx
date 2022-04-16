@@ -1,13 +1,41 @@
+import { EnumSortOrder } from "@constants/tableConfig";
 import { stySorter, styTableHeader } from "./styles";
 
-function TableHeader() {
+interface TableHeaderProps {
+  title: string;
+  id: string;
+  sortBy: string;
+  sortOrder: string;
+  onClick: (id: string) => void;
+}
+
+function TableHeader({
+  title,
+  id,
+  sortBy,
+  sortOrder,
+  onClick,
+}: TableHeaderProps) {
+  const handleClickItem = () => {
+    onClick(id);
+  };
+
+  const isActiveSortColumn = sortBy === id;
+  const isOrderByAscending = sortOrder === EnumSortOrder.ASCENDING;
+
   return (
-    <th className={styTableHeader}>
+    <th onClick={handleClickItem} className={styTableHeader}>
       <div className="sorter-wrapper">
-        <p>Email</p>
+        <p>{title}</p>
 
         <span className={stySorter}>
-          <span data-active="true" role="img" aria-label="caret-up" className="icon caret-up">
+          <span
+            {...(isActiveSortColumn &&
+              isOrderByAscending && { "data-active": true })}
+            role="img"
+            aria-label="caret-up"
+            className="icon caret-up"
+          >
             <svg
               viewBox="0 0 1024 1024"
               focusable="false"
@@ -21,7 +49,13 @@ function TableHeader() {
             </svg>
           </span>
 
-          <span role="img" aria-label="caret-down" className="icon caret-down">
+          <span
+            {...(isActiveSortColumn &&
+              !isOrderByAscending && { "data-active": true })}
+            role="img"
+            aria-label="caret-down"
+            className="icon caret-down"
+          >
             <svg
               viewBox="0 0 1024 1024"
               focusable="false"

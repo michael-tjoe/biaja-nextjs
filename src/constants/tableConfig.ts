@@ -1,3 +1,8 @@
+export const EnumSortOrder = {
+  ASCENDING: "ascending",
+  DESCENDING: "descending",
+};
+
 export const COLUMN_CONFIG = [
   {
     title: "Username",
