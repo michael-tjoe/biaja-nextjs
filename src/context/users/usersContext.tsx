@@ -55,7 +55,7 @@ function UsersProvider({ initialData, children }: UsersProviderProps) {
       const result = data.results || [];
       setUsersData(result);
     } catch (err) {
-      console.log(err);
+      alert("cant fetch data, please try again");
     } finally {
       setIsLoading(false);
     }

@@ -17,7 +17,7 @@ function Select({ options, value, onChange }) {
   });
 
   const selectedOption = options.find((option) => option.id === value);
-  console.log("select rendered");
+
   return (
     <div ref={selectEl} className={stySelectWrapper}>
       <div

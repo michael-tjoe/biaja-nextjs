@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import TableHeader from "@components/Tables/Header";
 import { COLUMN_CONFIG } from "@constants/tableConfig";
 import { UserInfo } from "@context/users/types";
@@ -47,7 +48,7 @@ function UsersTable({
               <td>{`${nameData.first} ${nameData.last}`}</td>
               <td>{user.email}</td>
               <td>{user.gender}</td>
-              <td>{user.registered.date}</td>
+              <td>{dayjs(user.registered.date).format("DD-MM-YYYY HH:mm")}</td>
             </tr>
           );
         })}
