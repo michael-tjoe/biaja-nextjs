@@ -19,6 +19,12 @@ function Pagination({
     return getPager(totalData, currentPage, pageSize);
   }, [totalData, currentPage, pageSize]);
 
+  const handleClickPage = (value) => {
+    if (value === currentPage) return;
+
+    onClickPage(value);
+  };
+
   return (
     <ul className={styPaginationWrapper}>
       {result.map((page, index) => {
@@ -26,7 +32,7 @@ function Pagination({
 
         return (
           <li
-            onClick={() => onClickPage(page)}
+            onClick={() => handleClickPage(page)}
             {...(isActive && { "data-active": true })}
             key={index}
           >

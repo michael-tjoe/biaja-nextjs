@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { styBreadcrumbWrapper } from "./styles";
 
 function Breadcrumb() {
@@ -15,4 +16,4 @@ function Breadcrumb() {
   );
 }
 
-export default Breadcrumb;
+export default memo(Breadcrumb);
