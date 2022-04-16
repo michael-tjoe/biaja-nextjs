@@ -31,7 +31,7 @@ and hit the API with existing `sortBy`,`sortOrder`and `keyword`,
 
 ## Changing SortOrder, SortBy
 
-When selected table header is clicked for the first time it will set `SortBy` value to the selected header and set `SortOrder` to `Ascending` mode, when clicked the same header again (second times) it will set `SortOrder` to `Descending` mode, when clicked again (third times) it will remove `SortBy` and `SortOrder` value. Changin `SortBy` or `SortOrder` will set the page to `1` (first page) and hit the API with existing `filter`, `keyword`,
+When selected table header is clicked for the first time it will set `SortBy` value to the selected header and set `SortOrder` to `Ascending` mode, when clicked the same header again (second times) it will set `SortOrder` to `Descending` mode, when clicked again (third times) it will remove `SortBy` and `SortOrder` value. Changing `SortBy` or `SortOrder` will set the page to `1` (first page) and hit the API with existing `filter` and `keyword`,
 
 ## Changing Total Result Data and Pagesize
 You can set page size and total data on `@constants/api.ts`. Ex: Changing page size to 5, and setting total data to 11 will display
