@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import * as React from 'react'
-import { renderStatic } from './renderer'
+import { renderStatic } from '../src/renderer'
 
 export default class AppDocument extends Document {
   static async getInitialProps(ctx) {
