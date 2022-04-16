@@ -2,7 +2,7 @@
 
 ## Server Side Rendering
 
-The purpose of SSR in this project to a better LCP time.
+The purpose of SSR in this project to get a better LCP time.
 There is no request to randomuser API when the page is loaded for the first time, we get data on the first page
 with default filter on the server side.
 
