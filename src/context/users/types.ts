@@ -39,7 +39,8 @@ export type UserActionType =
   | "SET_FILTER"
   | "SET_KEYWORD"
   | "RESET"
-  | "SET_SORT_BY";
+  | "SET_SORT_BY"
+  | "SET_PAGE";
 
 export interface UsersContextData {
   usersData: Array<UserInfo>;

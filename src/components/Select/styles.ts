@@ -78,7 +78,7 @@ export const stySelectWrapper = css`
 
 export const styDropdown = css`
   min-width: 120px;
-  width: 120px;
+  width: 100%;
   margin: 0;
   color: ${blackPrimary};
   line-height: 1.5715;
@@ -136,7 +136,7 @@ export const styDropdown = css`
       }
 
       &[data-selected] {
-        color: #000000d9;
+        color: ${blackPrimary};
         font-weight: 600;
         background-color: #e6f7ff;
       }

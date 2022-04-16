@@ -1,6 +1,7 @@
 import Head from "next/head";
-import { BASE_URL } from "@constants/api";
+import { BASE_URL, PAGE_SIZE, TOTAL_DATA } from "@constants/api";
 import PersonalProject from "@pages/PersonalProject";
+import { countResultLength } from "@utils/countResultLength";
 
 const Home = ({ data }) => (
   <>
@@ -12,7 +13,9 @@ const Home = ({ data }) => (
 );
 
 export async function getServerSideProps() {
-  const res = await fetch(`${BASE_URL}&page=1`);
+  const res = await fetch(
+    `${BASE_URL}&page=1&results=${countResultLength(1, PAGE_SIZE, TOTAL_DATA)}`
+  );
   const data = await res.json();
 
   if (!data) {

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import dayjs from "dayjs";
 import TableHeader from "@components/Tables/Header";
 import { COLUMN_CONFIG } from "@constants/tableConfig";
@@ -57,4 +58,4 @@ function UsersTable({
   );
 }
 
-export default UsersTable;
+export default memo(UsersTable);

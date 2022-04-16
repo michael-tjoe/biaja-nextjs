@@ -1,6 +1,6 @@
 import { createContext, useState, ReactNode, useReducer } from "react";
 import useDebounce from "@hooks/useDebounce";
-import { BASE_URL as API_URL } from "@constants/api";
+import { BASE_URL as API_URL, PAGE_SIZE, TOTAL_DATA } from "@constants/api";
 
 import { usersReducer } from "./usersReducer";
 import type { PageStatusData, UserInfo, UsersContextData } from "./types";
@@ -10,6 +10,7 @@ import {
   DEFAULT_PAGE_STATUS,
 } from "./initialState";
 import { DEFAULT_FILTER_VALUE } from "@constants/filterOption";
+import { countResultLength } from "@utils/countResultLength";
 
 interface UsersProviderProps {
   initialData: Array<UserInfo>;
@@ -31,6 +32,13 @@ function UsersProvider({ initialData, children }: UsersProviderProps) {
   const handleFetchUsers = async () => {
     try {
       setIsLoading(true);
+
+      const resultLength = countResultLength(
+        pageStatus.currentPage,
+        PAGE_SIZE,
+        TOTAL_DATA
+      );
+
       const { currentPage, keyword, sortBy, sortOrder, filter } = pageStatus;
 
       const keywordParam = keyword ? `&keyword=${keyword}` : "";
@@ -42,7 +50,8 @@ function UsersProvider({ initialData, children }: UsersProviderProps) {
         ? `&sortBy=${sortBy}&sortOrder=${sortOrder}`
         : "";
 
-      const queryUrl = `${API_URL}&page=${currentPage}${keywordParam}${filterParam}${sortParam}`;
+      const resultParam = `&results=${resultLength}`;
+      const queryUrl = `${API_URL}&page=${currentPage}${keywordParam}${filterParam}${sortParam}${resultParam}`;
 
       const res = await fetch(queryUrl);
       const data = await res.json();

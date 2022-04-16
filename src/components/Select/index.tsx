@@ -50,7 +50,10 @@ function Select({ options, value, onChange }) {
       >
         <ul>
           {options.map((option) => (
-            <li key={option.id}>
+            <li
+              {...(option.id === value && { "data-selected": true })}
+              key={option.id}
+            >
               <button
                 type="button"
                 onClick={() => {

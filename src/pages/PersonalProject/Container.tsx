@@ -8,10 +8,12 @@ import Breadcrumb from "@components/Breadcrumb";
 import Search from "@components/Search";
 import Select from "@components/Select";
 import Button from "@components/Button";
+import Pagination from "@components/Pagination";
 
 import { FILTER_OPTIONS } from "@constants/filterOption";
 import UsersTable from "./UsersTable";
 import { styProjectWrapper } from "./styles";
+import { PAGE_SIZE, TOTAL_DATA } from "@constants/api";
 
 function PersonalProject() {
   const { pageStatus, dispatchPageStatus, usersData, isLoading } =
@@ -51,6 +53,16 @@ function PersonalProject() {
     [dispatchPageStatus]
   );
 
+  const handleChangePage = useCallback(
+    (newPage) => {
+      dispatchPageStatus({
+        type: EnumAction.SET_PAGE,
+        payload: newPage,
+      });
+    },
+    [dispatchPageStatus]
+  );
+
   return (
     <div className={styProjectWrapper}>
       <Breadcrumb />
@@ -73,6 +85,15 @@ function PersonalProject() {
             sortBy={pageStatus.sortBy}
             sortOrder={pageStatus.sortOrder}
             onClikHeader={handleChangeSort}
+          />
+        </div>
+        <div className="pagination-wrapper">
+          {`Total data: ${TOTAL_DATA}`}
+          <Pagination
+            onClickPage={handleChangePage}
+            totalData={TOTAL_DATA}
+            currentPage={pageStatus.currentPage}
+            pageSize={PAGE_SIZE}
           />
         </div>
       </Spinner>

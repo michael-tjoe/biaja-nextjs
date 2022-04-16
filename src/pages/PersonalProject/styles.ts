@@ -17,6 +17,18 @@ export const styProjectWrapper = css`
     border-bottom: 1px solid ${smoke};
     margin-bottom: 32px;
   }
+
+  .table-wrapper {
+    height: 300px;
+    overflow: auto;
+  }
+
+  .pagination-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+  }
 `;
 
 export const styTableWrapper = css`
@@ -47,11 +59,13 @@ export const styTableWrapper = css`
 
     > tr {
       th {
-        position: relative;
+        position: sticky;
+        top: 0;
+        z-index: 2;
         color: ${blackPrimary};
         font-weight: 500;
         text-align: left;
-        background: #fafafa;
+        background-color: #fafafa;
         border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         padding: 16px;
         overflow-wrap: break-word;
