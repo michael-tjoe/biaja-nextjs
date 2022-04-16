@@ -1,4 +1,4 @@
-export const TOTAL_DATA = 11;
+export const TOTAL_DATA = 10;
 export const PAGE_SIZE = 5;
 
 const includeParam = "?inc=gender,name,email,login,registered";
