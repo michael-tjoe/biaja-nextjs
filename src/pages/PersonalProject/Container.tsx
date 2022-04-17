@@ -65,7 +65,18 @@ function PersonalProject() {
 
   return (
     <div className={styProjectWrapper}>
-      <Breadcrumb />
+      <Breadcrumb
+        routes={[
+          {
+            label: "Home",
+            path: "/home",
+          },
+          {
+            label: "Project",
+            path: "/project",
+          },
+        ]}
+      />
       <h1>Personal Project</h1>
 
       <Spinner spinning={isLoading}>

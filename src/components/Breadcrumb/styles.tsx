@@ -12,6 +12,15 @@ export const styBreadcrumbWrapper = css`
   list-style: none;
 
   > span {
+    .link {
+      &.disabled {
+        color: ${grayScale};
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+
     .separator {
       margin: 0 8px;
       color: ${grayScale};

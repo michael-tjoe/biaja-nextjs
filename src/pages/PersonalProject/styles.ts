@@ -5,7 +5,7 @@ import { blackPrimary, smoke } from "@styles/variables/colors";
 export const styProjectWrapper = css`
   > h1 {
     ${tag1}
-    margin-top: 8px;
+    margin: 12px 0;
   }
 
   .control-bar {
