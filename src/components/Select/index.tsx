@@ -58,7 +58,10 @@ function Select({ options, value, onChange }) {
                 data-testid={`btnSelect-${option.id}`}
                 type="button"
                 onClick={() => {
-                  onChange(option);
+                  if (option.id !== selectedOption.id) {
+                    onChange(option);
+                  }
+
                   setDisplayDropdown(false);
                 }}
               >
