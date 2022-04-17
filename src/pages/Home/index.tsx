@@ -1,8 +1,12 @@
-import Breadcrumb from "@components/Breadcrumb";
-import Button from "@components/Button";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
-import { styHomeWrapper } from "./styles";
+import Breadcrumb from "@components/Breadcrumb";
+import Button from "@components/Button";
+
+import lightHouseStatsImg from "@assets/lighthouse.png";
+import coverageImg from "@assets/coverage.png";
+import { styHomeWrapper, styStatsWrapper } from "./styles";
 
 function HomePage() {
   const router = useRouter();
@@ -31,6 +35,14 @@ function HomePage() {
       <Button onClick={handleClickRedirect} primary>
         Jump to the project
       </Button>
+
+      <h2>Stats</h2>
+      <p>Coverage Statement: 87.63%</p>
+
+      <div className={styStatsWrapper}>
+        <Image alt="" src={lightHouseStatsImg} layout="intrinsic" />
+        <Image alt="" src={coverageImg} layout="intrinsic" />
+      </div>
     </div>
   );
 }

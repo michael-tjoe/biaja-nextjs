@@ -20,6 +20,7 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
+      "@assets/*": ["src/assets/*"],
       "@context/*": ["src/context/*"],
       "@hooks/*": ["src/hooks/*"],
       "@utils/*": ["src/utils/*"],

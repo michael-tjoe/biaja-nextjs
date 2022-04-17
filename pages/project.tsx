@@ -17,7 +17,6 @@ export async function getServerSideProps() {
     `${BASE_URL}&page=1&results=${countResultLength(1, PAGE_SIZE, TOTAL_DATA)}`
   );
   const data = await res.json();
-  console.log("data: ", data);
 
   if (!data) {
     return {
