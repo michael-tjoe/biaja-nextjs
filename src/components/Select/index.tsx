@@ -55,6 +55,7 @@ function Select({ options, value, onChange }) {
               key={option.id}
             >
               <button
+                data-testid={`btnSelect-${option.id}`}
                 type="button"
                 onClick={() => {
                   onChange(option);

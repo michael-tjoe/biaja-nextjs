@@ -56,4 +56,43 @@ describe("Personal Project Integration Test", () => {
       );
     });
   });
+
+  it("should able change sort to ascending/descending/reset", async () => {
+    const { findByTestId } = setupRender();
+    const usernameTableHead = await findByTestId("tableHeader-username");
+
+    fireEvent.click(usernameTableHead);
+    await waitFor(() => {
+      const expectedSortOrder = "ascending";
+      expect(global.fetch).toBeCalledWith(
+        `${BASE_URL}&page=1&sortBy=username&sortOrder=${expectedSortOrder}&results=5`
+      );
+    });
+
+    fireEvent.click(usernameTableHead);
+    await waitFor(() => {
+      const expectedSortOrder = "descending";
+      expect(global.fetch).toBeCalledWith(
+        `${BASE_URL}&page=1&sortBy=username&sortOrder=${expectedSortOrder}&results=5`
+      );
+    });
+
+    fireEvent.click(usernameTableHead);
+    await waitFor(() => {
+      expect(global.fetch).toBeCalledWith(`${BASE_URL}&page=1&results=5`);
+    });
+  });
+
+  it("should able to filter by gender", async () => {
+    const { findByTestId } = setupRender();
+    const selectOptionEl = await findByTestId("btnSelect-male");
+
+    fireEvent.click(selectOptionEl);
+    await waitFor(() => {
+      const expectedFilterValue = "male";
+      expect(global.fetch).toBeCalledWith(
+        `${BASE_URL}&page=1&gender=${expectedFilterValue}&results=5`
+      );
+    });
+  });
 });
